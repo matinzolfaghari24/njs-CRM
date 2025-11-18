@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 function AddCustomerPage() {
   const [form, setForm] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     email: "",
     phone: "",

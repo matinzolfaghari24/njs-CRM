@@ -31,35 +31,46 @@ function ItemList({ form, setForm }) {
       <button onClick={addHandler}>Add Item</button>
       {form.products &&
         form.products.map((product, index) => (
-          <div key={index}>
-            <FormInput
-              name="name"
-              label="Product Name"
-              type="text"
-              value={product.name}
-              onChange={(e) => changeHandler(e, index)}
-            />
-            <div>
-              <FormInput
-                name="price"
-                label="Price"
-                type="text"
-                value={product.price}
-                onChange={(e) => changeHandler(e, index)}
-              />
-              <FormInput
-                name="qty"
-                label="Qty"
-                type="text"
-                value={product.qty}
-                onChange={(e) => changeHandler(e, index)}
-              />
-            </div>
-            <button onClick={() => deleteHandler(index)}>Delete</button>
-          </div>
+          <ProductItem
+            key={index}
+            product={product}
+            changeHandler={(e) => changeHandler(e, index)}
+            deleteHandler={() => deleteHandler(index)}
+          />
         ))}
     </div>
   );
 }
 
 export default ItemList;
+
+function ProductItem({ product, changeHandler, deleteHandler }) {
+  return (
+    <div>
+      <FormInput
+        name="name"
+        label="Product Name"
+        type="text"
+        value={product.name}
+        onChange={changeHandler}
+      />
+      <div>
+        <FormInput
+          name="price"
+          label="Price"
+          type="text"
+          value={product.price}
+          onChange={changeHandler}
+        />
+        <FormInput
+          name="qty"
+          label="Qty"
+          type="text"
+          value={product.qty}
+          onChange={changeHandler}
+        />
+      </div>
+      <button onClick={deleteHandler}>Delete</button>
+    </div>
+  );
+}
