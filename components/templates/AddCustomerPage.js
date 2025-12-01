@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "../modules/Form";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 function AddCustomerPage() {
   const [form, setForm] = useState({
@@ -22,10 +23,12 @@ function AddCustomerPage() {
         "Content-Type": "application/json",
       },
     });
-    const data = await res.json();
-    console.log(data);
-    if (data.status === "success") {
+    const { status, message, data } = await res.json();
+    if (status === "success") {
+      toast.success(message || "Customer added successfully");
       router.push("/");
+    } else {
+      toast.error(message || "Something went wrong!");
     }
   };
   const cancelHandler = () => {
@@ -41,12 +44,30 @@ function AddCustomerPage() {
     router.push("/");
   };
   return (
-    <div>
-      <h4>Add New Customer</h4>
-      <Form form={form} setForm={setForm} />
-      <div>
-        <button onClick={cancelHandler}>Cancel</button>
-        <button onClick={saveHandler}>Save</button>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-r from-cyan-900 to-blue-900 rounded-xl p-8 shadow-2xl mb-8">
+        <h4 className="text-3xl font-bold text-white">Add New Customer</h4>
+        <p className="text-cyan-100 mt-2">
+          Fill in the details below to add a new customer to your CRM
+        </p>
+      </div>
+
+      <div className="border border-blue-500 rounded-xl p-8 shadow-lg">
+        <Form form={form} setForm={setForm} />
+        <div className="flex justify-end gap-4 mt-8 pt-6 border-t border-gray-700">
+          <button
+            onClick={cancelHandler}
+            className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition duration-300"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={saveHandler}
+            className="px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-lg shadow-md transition duration-300 transform hover:scale-105"
+          >
+            Save Customer
+          </button>
+        </div>
       </div>
     </div>
   );
