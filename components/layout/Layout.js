@@ -3,7 +3,7 @@ import React from "react";
 
 function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b  from-black via-blue-900/60 to-black ">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b  from-black via-gray-900/90 to-black ">
       <header className="w-full border-b border-blue-700  ">
         <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
           <Link href="/">
