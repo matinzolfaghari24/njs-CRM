@@ -11,12 +11,12 @@ function Form({ form, setForm }) {
     });
   };
   return (
-    <div className="space-y-6">
-      <div className="border-b border-blue-500 pb-6">
-        <h3 className="text-lg font-semibold text-white mb-4">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="border-b border-blue-500 pb-4 sm:pb-6">
+        <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
           Personal Information
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <FormInput
             name="name"
             label="Name"
@@ -34,11 +34,11 @@ function Form({ form, setForm }) {
         </div>
       </div>
 
-      <div className="border-b border-blue-500 pb-6">
-        <h3 className="text-lg font-semibold text-white mb-4">
+      <div className="border-b border-blue-500 pb-4 sm:pb-6">
+        <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
           Contact Information
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <FormInput
             name="email"
             label="Email"
@@ -56,8 +56,8 @@ function Form({ form, setForm }) {
         </div>
       </div>
 
-      <div className="border-b border-blue-500 pb-6">
-        <h3 className="text-lg font-semibold text-white mb-4">
+      <div className="border-b border-blue-500 pb-4 sm:pb-6">
+        <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">
           Address Information
         </h3>
         <FormInput
@@ -68,7 +68,7 @@ function Form({ form, setForm }) {
           onChange={changeHandler}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
           <FormInput
             name="postalCode"
             label="Postal Code"

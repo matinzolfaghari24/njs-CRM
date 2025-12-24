@@ -16,29 +16,29 @@ function Card({ customer }) {
   };
 
   return (
-    <div className="border border-blue-500 flex justify-between rounded-lg m-3 p-4 items-center max-sm:flex-col max-sm:items-start max-sm:gap-2">
-      <div className="flex gap-5 max-lg:flex-col max-sm:gap-1">
-        <p>
+    <div className="border border-blue-500 flex flex-col sm:flex-row sm:justify-between rounded-lg m-2 sm:m-3 p-3 sm:p-4 gap-3 sm:gap-4 sm:items-center">
+      <div className="flex flex-col sm:flex-row gap-2 sm:gap-5 text-sm sm:text-base">
+        <p className="font-semibold">
           {customer.name} {customer.lastName}
         </p>
-        <p>{customer.email}</p>
+        <p className="text-gray-300">{customer.email}</p>
       </div>
-      <div className="max-sm:w-full  flex justify-end gap-2">
+      <div className="w-full sm:w-auto flex justify-start sm:justify-end gap-2">
         <button
           onClick={deleteHandler}
-          className="text-red-500 border border-red-500 px-2 py-1 rounded-lg hover:bg-red-900"
+          className="text-red-500 border border-red-500 px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-lg hover:bg-red-900 transition duration-300 flex-1 sm:flex-none"
         >
           Delete
         </button>
         <Link
           href={`/edit/${customer._id}`}
-          className="text-green-300 border border-green-300 px-2 py-1 rounded-lg hover:bg-green-900"
+          className="text-green-300 border border-green-300 px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-lg hover:bg-green-900 transition duration-300 flex-1 sm:flex-none text-center"
         >
           Edit
         </Link>
         <Link
           href={`/customers/${customer._id}`}
-          className="text-green-300 border border-green-300 px-2 py-1 rounded-lg hover:bg-green-900"
+          className="text-green-300 border border-green-300 px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-lg hover:bg-green-900 transition duration-300 flex-1 sm:flex-none text-center"
         >
           Details
         </Link>
